@@ -1,0 +1,21 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "group": "iron_hoe",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:bone"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:iron_hoe",
+    "handle": "minecraft:bone"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "group": "diamond_axe",
+  "pattern": [
+    "XX",
+    "X#",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "altcraft:golden_rod"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "minecraft:diamond_axe",
+    "handle": "altcraft:golden_rod"
+  }
+}

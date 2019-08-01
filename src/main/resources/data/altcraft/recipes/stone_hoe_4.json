@@ -1,0 +1,21 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "group": "stone_hoe",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "minecraft:stone_hoe",
+    "handle": "minecraft:blaze_rod"
+  }
+}

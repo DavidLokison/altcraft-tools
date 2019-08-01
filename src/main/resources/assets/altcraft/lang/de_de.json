@@ -1,0 +1,15 @@
+{
+  "item.altcraft.iron_rod": "Eisenstange",
+  "item.altcraft.golden_rod": "Goldstange",
+  "itemGroup.altcraft.tools": "Altcraft Werkzeuge",
+  "altcraft.item.handle": "Griff: ",
+  "altcraft.handle.durability": "Haltbarkeit x%s",
+  "altcraft.handle.speed": "Geschwindigkeit x%s",
+  "altcraft.handle.enchantability": "Zauberaffinität x%s",
+  "handle.altcraft.wood": "Holz",
+  "handle.altcraft.bone": "Knochen",
+  "handle.altcraft.iron": "Eisen",
+  "handle.altcraft.gold": "Gold",
+  "handle.altcraft.blaze": "Lohe",
+  "handle.altcraft.bamboo": "Bambus"
+}

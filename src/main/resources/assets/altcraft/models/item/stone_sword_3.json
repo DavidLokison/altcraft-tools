@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "altcraft:item/handle/short_gold",
+    "layer1": "item/stone_sword"
+  }
+}

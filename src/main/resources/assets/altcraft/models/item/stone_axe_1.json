@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "altcraft:item/handle/axe_bone",
+    "layer1": "item/stone_axe"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "group": "golden_sword",
+  "pattern": [
+    "X",
+    "X",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:blaze_rod"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result": {
+    "item": "minecraft:golden_sword",
+    "handle": "minecraft:blaze_rod"
+  }
+}

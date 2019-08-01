@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "mod.altcraft.tools.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "mixins.tools.altcraft.refmap.json",
+  "mixins": [
+    "EnchantmentHelperMixin",
+    "ItemStackMixin",
+    "ToolItemMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

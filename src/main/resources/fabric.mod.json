@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "altcraft-tools",
+  "version": "${version}",
+  "name": "Altcraft Tools",
+  "description": "Adds tool handles to modify base tool properties. Inspired by TinkersConstruct and Tool Builder.",
+  "contact": {
+    "sources": "https://github.com/Saladan/altcraft-tools",
+    "curseforge": "https://www.curseforge.com/minecraft/mc-mods/altcraft-tools"
+  },
+  "authors": [
+    {
+      "name": "David Ehnert",
+      "contact": {
+        "email": "contact@david-ehnert.de",
+        "curseforge": "https://www.curseforge.com/members/musikkaefer"
+      }
+    }
+  ],
+  "license": "MIT License",
+  "icon": "assets/altcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "mod.altcraft.tools.Altcraft"
+    ]
+  },
+  "mixins": [
+    "tools.altcraft.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": ">=0.3.0"
+  }
+}

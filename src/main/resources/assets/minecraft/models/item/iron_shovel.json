@@ -1,0 +1,34 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "altcraft:item/handle/shovel_wood",
+    "layer1": "item/iron_shovel"
+  },
+  "overrides": [{
+      "predicate": {
+        "altcraft:handle": 1
+      },
+      "model": "altcraft:item/iron_shovel_1"
+    }, {
+      "predicate": {
+        "altcraft:handle": 2
+      },
+      "model": "altcraft:item/iron_shovel_2"
+    }, {
+      "predicate": {
+        "altcraft:handle": 3
+      },
+      "model": "altcraft:item/iron_shovel_3"
+    }, {
+      "predicate": {
+        "altcraft:handle": 4
+      },
+      "model": "altcraft:item/iron_shovel_4"
+    }, {
+      "predicate": {
+        "altcraft:handle": 5
+      },
+      "model": "altcraft:item/iron_shovel_5"
+    }
+  ]
+}

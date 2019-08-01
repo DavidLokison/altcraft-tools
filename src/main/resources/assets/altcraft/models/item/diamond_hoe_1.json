@@ -1,0 +1,7 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "altcraft:item/handle/long_bone",
+    "layer1": "item/diamond_hoe"
+  }
+}
