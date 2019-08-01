@@ -51,4 +51,10 @@ public class Altcraft implements ModInitializer {
     Items.registerItems();
     RecipeSerializers.registerRecipeSerializers();
   }
+
+  /*
+   * TODO: test REI Integration
+   * TODO: make handled iron (gold), stone (iron, gold) and wood (iron, gold) recipes also available by rods
+   * TODO: make German translation working
+   */
 }
