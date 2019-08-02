@@ -13,13 +13,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
-import mod.altcraft.tools.Altcraft;
-import mod.altcraft.tools.item.HandleMaterial;
-import mod.altcraft.tools.item.HandleMaterials;
+import mod.altcraft.tools.AltcraftTools;
+import mod.altcraft.tools.handle.Handle;
+import mod.altcraft.tools.item.AltcraftHandledItem;
+import mod.altcraft.tools.util.Registries;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
@@ -44,39 +46,39 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
   }
 
   public boolean matches(CraftingInventory inventory, World world) {
-     for(int x = 0; x <= inventory.getWidth() - this.getWidth(); ++x) {
-        for(int y = 0; y <= inventory.getHeight() - this.getHeight(); ++y) {
-           if (this.matchesSmall(inventory, x, y, true)) {
-              return true;
-           }
-           if (this.matchesSmall(inventory, x, y, false)) {
-              return true;
-           }
+    for (int x = 0; x <= inventory.getWidth() - this.getWidth(); ++x) {
+      for (int y = 0; y <= inventory.getHeight() - this.getHeight(); ++y) {
+        if (this.matchesSmall(inventory, x, y, true)) {
+          return true;
         }
-     }
+        if (this.matchesSmall(inventory, x, y, false)) {
+          return true;
+        }
+      }
+    }
 
-     return false;
+    return false;
   }
 
   private boolean matchesSmall(CraftingInventory inventory, int offsX, int offsY, boolean mirror) {
-     for(int baseX = 0; baseX < inventory.getWidth(); ++baseX) {
-        for(int baseY = 0; baseY < inventory.getHeight(); ++baseY) {
-           int x = baseX - offsX;
-           int y = baseY - offsY;
-           Ingredient ingredient_1 = Ingredient.EMPTY;
-           if (x >= 0 && y >= 0 && x < this.getWidth() && y < this.getHeight()) {
-              if (mirror) {
-                 ingredient_1 = this.getPreviewInputs().get(this.getWidth() - x - 1 + y * this.getWidth());
-              } else {
-                 ingredient_1 = this.getPreviewInputs().get(x + y * this.getWidth());
-              }
-           }
-           if (!ingredient_1.method_8093(inventory.getInvStack(baseX + baseY * inventory.getWidth()))) {
-              return false;
-           }
+    for (int baseX = 0; baseX < inventory.getWidth(); ++baseX) {
+      for (int baseY = 0; baseY < inventory.getHeight(); ++baseY) {
+        int x = baseX - offsX;
+        int y = baseY - offsY;
+        Ingredient ingredient_1 = Ingredient.EMPTY;
+        if (x >= 0 && y >= 0 && x < this.getWidth() && y < this.getHeight()) {
+          if (mirror) {
+            ingredient_1 = this.getPreviewInputs().get(this.getWidth() - x - 1 + y * this.getWidth());
+          } else {
+            ingredient_1 = this.getPreviewInputs().get(x + y * this.getWidth());
+          }
         }
-     }
-     return true;
+        if (!ingredient_1.method_8093(inventory.getInvStack(baseX + baseY * inventory.getWidth()))) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   public ItemStack craft(CraftingInventory inventory) {
@@ -88,19 +90,24 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
     Item item = (Item) Registry.ITEM.getOrEmpty(new Identifier(itemId)).orElseThrow(() -> {
       return new JsonSyntaxException("Unknown item '" + itemId + "'");
     });
+    if (!(item instanceof AltcraftHandledItem)) {
+      throw new IllegalArgumentException("'" + itemId + "' is not handled");
+    }
     if (json.has("data")) {
       throw new JsonParseException("Disallowed data tag found");
     } else {
       int count = JsonHelper.getInt(json, "count", 1);
       String handleId = JsonHelper.getString(json, "handle");
-      HandleMaterial material = HandleMaterials.getOrDefault(new Identifier(handleId), null);
-      if (material == null) {
-        throw new JsonSyntaxException("Handle can't be null!");
+      Handle handle = Registries.HANDLE.getOrEmpty(new Identifier(handleId)).orElse(null);
+      if (handle == null) {
+        throw new JsonSyntaxException("Unknown handle '" + handleId + "'");
+      } else if (!((AltcraftHandledItem) item).isValidHandle(handle)) {
+         throw new IllegalArgumentException("'" + handleId + "' is no valid handle for '" + itemId + "'");
       }
       CompoundTag altcraft = new CompoundTag();
-      altcraft.put("handle", material.getTag());
+      altcraft.put("handle", new StringTag(handleId));
       ItemStack stack = new ItemStack(item, count);
-      stack.putSubTag(Altcraft.NAMESPACE, altcraft);
+      stack.putSubTag(AltcraftTools.NAMESPACE, altcraft);
       return stack;
     }
   }
@@ -250,7 +257,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
       int height = pattern.length;
       DefaultedList<Ingredient> ingredients = ShapedHandledRecipe.getIngredients(pattern, components, width, height);
       ItemStack stack = ShapedHandledRecipe.getItemStack(JsonHelper.getObject(json, "result"));
-      Identifier handle = new Identifier(stack.getSubTag(Altcraft.NAMESPACE).getString("handle"));
+      Identifier handle = new Identifier(stack.getSubTag(AltcraftTools.NAMESPACE).getString("handle"));
       return new ShapedHandledRecipe(identifier, group, width, height, ingredients, stack, handle);
     }
   }

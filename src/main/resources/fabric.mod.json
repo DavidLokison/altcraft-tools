@@ -6,6 +6,7 @@
   "description": "Adds tool handles to modify base tool properties. Inspired by TinkersConstruct and Tool Builder.",
   "contact": {
     "sources": "https://github.com/Saladan/altcraft-tools",
+    "issues": "https://github.com/Saladan/altcraft-tools/issues",
     "curseforge": "https://www.curseforge.com/minecraft/mc-mods/altcraft-tools"
   },
   "authors": [
@@ -22,7 +23,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "mod.altcraft.tools.Altcraft"
+      "mod.altcraft.tools.AltcraftTools"
     ]
   },
   "mixins": [

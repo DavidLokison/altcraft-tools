@@ -1,7 +1,7 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "altcraft:item/handle/long_wood",
+    "layer0": "altcraft:item/handle/pickaxe_wood",
     "layer1": "item/iron_pickaxe"
   },
   "overrides": [{

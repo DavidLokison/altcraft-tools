@@ -9,10 +9,8 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.google.common.collect.Multimap;
 
-import mod.altcraft.tools.Altcraft;
+import mod.altcraft.tools.handle.Handle;
 import mod.altcraft.tools.item.AltcraftHandledItem;
-import mod.altcraft.tools.item.HandleMaterial;
-import mod.altcraft.tools.item.HandleMaterials;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -20,7 +18,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.util.Identifier;
 
 @Mixin(ItemStack.class)
 public abstract class ItemStackMixin {
@@ -30,18 +27,10 @@ public abstract class ItemStackMixin {
   @Shadow
   public abstract CompoundTag getSubTag(String name);
 
-  private HandleMaterial altcraft_getHandleOrDefault(HandleMaterial other) {
-    CompoundTag namespace = this.getSubTag(Altcraft.NAMESPACE);
-    if (namespace != null && namespace.containsKey("handle", 8)) {
-      return HandleMaterials.getOrDefault(new Identifier(namespace.getString("handle")), other);
-    }
-    return other;
-  }
-
   @Inject(at = @At("HEAD"), method = "getMaxDamage", cancellable = true)
   private void altcraft_modifyDurability(CallbackInfoReturnable<Integer> cir) {
     if (this.getItem() instanceof AltcraftHandledItem) {
-      cir.setReturnValue(Math.round(this.getItem().getMaxDamage() * this.altcraft_getHandleOrDefault(HandleMaterials.WOOD).getDurabilityModifier()));
+      cir.setReturnValue(Math.round(this.getItem().getMaxDamage() * Handle.fromItemStack((ItemStack) (Object) this).getDurabilityModifier()));
     }
   }
 
@@ -49,7 +38,7 @@ public abstract class ItemStackMixin {
   private void altcraft_modifyMiningSpeed(BlockState state, CallbackInfoReturnable<Float> cir) {
     if (this.getItem() instanceof AltcraftHandledItem) {
       if (this.getItem().getMiningSpeed((ItemStack) (Object) this, state) != 1.0F) {
-        cir.setReturnValue(this.getItem().getMiningSpeed((ItemStack) (Object) this, state) * this.altcraft_getHandleOrDefault(HandleMaterials.WOOD).getSpeedModifier());
+        cir.setReturnValue(this.getItem().getMiningSpeed((ItemStack) (Object) this, state) * Handle.fromItemStack((ItemStack) (Object) this).getSpeedModifier());
       }
     }
   }
@@ -59,7 +48,7 @@ public abstract class ItemStackMixin {
     if (this.getItem() instanceof AltcraftHandledItem) {
       if (slot == EquipmentSlot.MAINHAND) {
         EntityAttributeModifier base = map.removeAll(EntityAttributes.ATTACK_SPEED.getId()).iterator().next();
-        map.put(EntityAttributes.ATTACK_SPEED.getId(), new EntityAttributeModifier(base.getId(), base.getName(), (4.0 + base.getAmount()) * this.altcraft_getHandleOrDefault(HandleMaterials.WOOD).getSpeedModifier() - 4.0, EntityAttributeModifier.Operation.ADDITION));
+        map.put(EntityAttributes.ATTACK_SPEED.getId(), new EntityAttributeModifier(base.getId(), base.getName(), (4.0 + base.getAmount()) * Handle.fromItemStack((ItemStack) (Object) this).getSpeedModifier() - 4.0, EntityAttributeModifier.Operation.ADDITION));
       }
     }
   }
