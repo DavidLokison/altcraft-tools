@@ -5,7 +5,7 @@ import mod.altcraft.tools.util.Registries;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.SystemUtil;
+import net.minecraft.util.Util;
 
 public class Handle {
   private float durabilityModifier;
@@ -24,12 +24,12 @@ public class Handle {
   
   public static Handle fromItemStack(ItemStack stack) {
     CompoundTag namespace = stack.getSubTag(AltcraftTools.NAMESPACE);
-    return Registries.HANDLE.get(namespace != null && namespace.containsKey("handle", 8) ? new Identifier(namespace.getString("handle")) : null);
+    return Registries.HANDLE.get(namespace != null && namespace.contains("handle", 8) ? new Identifier(namespace.getString("handle")) : null);
   }
   
   public static boolean hasCustomHandle(ItemStack stack) {
     CompoundTag namespace = stack.getSubTag(AltcraftTools.NAMESPACE);
-    return namespace != null ? namespace.containsKey("handle", 8) : false;
+    return namespace != null ? namespace.contains("handle", 8) : false;
   }
 
   public Handle(Handle.Settings settings) {
@@ -57,7 +57,7 @@ public class Handle {
   
   public String getTranslationKey() {
     if (this.translationKey == null) {
-      this.translationKey = SystemUtil.createTranslationKey("handle", Registries.HANDLE.getId(this));
+      this.translationKey = Util.createTranslationKey("handle", Registries.HANDLE.getId(this));
     }
     return this.translationKey;
   }

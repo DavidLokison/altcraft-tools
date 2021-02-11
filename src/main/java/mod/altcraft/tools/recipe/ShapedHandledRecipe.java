@@ -73,7 +73,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
             ingredient_1 = this.getPreviewInputs().get(x + y * this.getWidth());
           }
         }
-        if (!ingredient_1.method_8093(inventory.getInvStack(baseX + baseY * inventory.getWidth()))) {
+        if (!ingredient_1.test(inventory.getInvStack(baseX + baseY * inventory.getWidth()))) {
           return false;
         }
       }
@@ -105,7 +105,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
          throw new IllegalArgumentException("'" + handleId + "' is no valid handle for '" + itemId + "'");
       }
       CompoundTag altcraft = new CompoundTag();
-      altcraft.put("handle", new StringTag(handleId));
+      altcraft.put("handle", StringTag.of(handleId));
       ItemStack stack = new ItemStack(item, count);
       stack.putSubTag(AltcraftTools.NAMESPACE, altcraft);
       return stack;

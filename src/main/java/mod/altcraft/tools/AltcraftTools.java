@@ -36,7 +36,7 @@ public class AltcraftTools implements ModInitializer {
           Handle handle = handleIt.next();
           ItemStack stack = new ItemStack(item);
           CompoundTag altcraft = new CompoundTag();
-          altcraft.put("handle", new StringTag(Registries.HANDLE.getId(handle).toString()));
+          altcraft.put("handle", StringTag.of(Registries.HANDLE.getId(handle).toString()));
           stack.putSubTag(NAMESPACE, altcraft);
           stacks.add(stack);
         }
@@ -45,7 +45,7 @@ public class AltcraftTools implements ModInitializer {
   }).icon(() -> {
     ItemStack stack = new ItemStack(net.minecraft.item.Items.IRON_AXE);
     CompoundTag altcraft = new CompoundTag();
-    altcraft.put("handle", new StringTag(Registries.HANDLE.getId(Handles.BLAZE).toString()));
+    altcraft.put("handle", StringTag.of(Registries.HANDLE.getId(Handles.BLAZE).toString()));
     stack.putSubTag(NAMESPACE, altcraft);
     return stack;
   }).build();
