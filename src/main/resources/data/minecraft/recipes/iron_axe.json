@@ -7,15 +7,8 @@
     " #"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:iron_ingot"
-    }
+    "#": { "altcraft:toolpart": "altcraft:handle" },
+    "X": { "item": "minecraft:iron_ingot" }
   },
-  "result": {
-    "item": "minecraft:iron_axe",
-    "handle": "altcraft:wood"
-  }
+  "result": { "item": "minecraft:iron_axe" }
 }

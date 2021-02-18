@@ -1,7 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "altcraft:item/handle/sword_blaze",
-    "layer1": "item/diamond_sword"
-  }
-}

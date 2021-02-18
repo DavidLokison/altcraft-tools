@@ -8,6 +8,10 @@
     "ItemStackMixin",
     "ToolItemMixin"
   ],
+  "client": [
+    "ToolItemClientMixin",
+    "ModelLoaderClientMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

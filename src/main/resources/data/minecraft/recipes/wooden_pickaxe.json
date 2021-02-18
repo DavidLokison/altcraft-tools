@@ -7,15 +7,8 @@
     " # "
   ],
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "tag": "minecraft:planks"
-    }
+    "#": { "altcraft:toolpart": "altcraft:handle" },
+    "X": { "tag": "minecraft:planks" }
   },
-  "result": {
-    "item": "minecraft:wooden_pickaxe",
-    "handle": "altcraft:wood"
-  }
+  "result": { "item": "minecraft:wooden_pickaxe" }
 }

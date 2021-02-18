@@ -3,6 +3,7 @@
   "item.altcraft.golden_rod": "Goldstange",
   "itemGroup.altcraft.tools": "Altcraft Werkzeuge",
   "altcraft.item.handle": "Griff: ",
+  "altcraft.item.handle.crafting": "Mögliche Griffe: ",
   "altcraft.handle.durability": "Haltbarkeit x%s",
   "altcraft.handle.speed": "Geschwindigkeit x%s",
   "altcraft.handle.enchantability": "Zauberaffinität x%s",

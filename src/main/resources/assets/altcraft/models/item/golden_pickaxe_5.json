@@ -1,7 +1,0 @@
-{
-  "parent": "item/handheld",
-  "textures": {
-    "layer0": "altcraft:item/handle/pickaxe_bamboo",
-    "layer1": "item/golden_pickaxe"
-  }
-}

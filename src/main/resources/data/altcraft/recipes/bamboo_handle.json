@@ -1,0 +1,5 @@
+{
+  "type": "altcraft:toolpart",
+  "ingredient": { "item": "minecraft:bamboo" },
+  "result": { "altcraft:handle": "altcraft:bamboo" }
+}

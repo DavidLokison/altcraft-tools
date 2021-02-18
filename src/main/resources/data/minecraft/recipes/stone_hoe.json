@@ -7,15 +7,8 @@
     " #"
   ],
   "key": {
-    "#": {
-      "item": "minecraft:stick"
-    },
-    "X": {
-      "item": "minecraft:cobblestone"
-    }
+    "#": { "altcraft:toolpart": "altcraft:handle" },
+    "X": { "item": "minecraft:cobblestone" }
   },
-  "result": {
-    "item": "minecraft:stone_hoe",
-    "handle": "altcraft:wood"
-  }
+  "result": { "item": "minecraft:stone_hoe" }
 }

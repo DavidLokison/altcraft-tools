@@ -3,7 +3,7 @@
   "id": "altcraft-tools",
   "version": "${version}",
   "name": "Altcraft Tools",
-  "description": "Adds tool handles to modify base tool properties. Inspired by TinkersConstruct and Tool Builder.",
+  "description": "Makes vanilla (and many modded) tools modular to modify base tool properties. Inspired by TinkersConstruct and Tool Builder.",
   "contact": {
     "sources": "https://github.com/Saladan/altcraft-tools",
     "issues": "https://github.com/Saladan/altcraft-tools/issues",
@@ -24,6 +24,9 @@
   "entrypoints": {
     "main": [
       "mod.altcraft.tools.AltcraftTools"
+    ],
+    "client": [
+      "mod.altcraft.tools.AltcraftTools"
     ]
   },
   "mixins": [
@@ -31,7 +34,9 @@
   ],
   "depends": {
     "fabricloader": ">=0.7.0",
-    "fabric": ">=0.4.0",
+    "fabric": ">=0.11.0"
+  },
+  "planned": {
     "cotton-resources": ">=1.5.1",
     "cloth-config2": ">=2.14.1"
   }

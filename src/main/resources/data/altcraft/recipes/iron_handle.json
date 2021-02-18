@@ -1,0 +1,5 @@
+{
+  "type": "altcraft:toolpart",
+  "ingredient": { "item": "altcraft:iron_rod" },
+  "result": { "altcraft:handle": "altcraft:iron" }
+}

@@ -3,6 +3,7 @@
   "item.altcraft.golden_rod": "Golden Rod",
   "itemGroup.altcraft.tools": "Altcraft Tools",
   "altcraft.item.handle": "Handle: ",
+  "altcraft.item.handle.crafting": "Possible Handles: ",
   "altcraft.handle.durability": "Durability x%s",
   "altcraft.handle.speed": "Speed x%s",
   "altcraft.handle.enchantability": "Enchantability x%s",

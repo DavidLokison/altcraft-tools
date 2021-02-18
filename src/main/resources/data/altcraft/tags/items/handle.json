@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:stick",
+    "minecraft:bamboo",
+    "altcraft:iron_rod",
+    "altcraft:golden_rod",
+    "minecraft:blaze_rod"
+  ]
+}
