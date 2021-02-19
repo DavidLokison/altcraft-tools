@@ -11,7 +11,6 @@ import mod.altcraft.tools.handle.Handle;
 import mod.altcraft.tools.item.AltcraftHandledItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeFinder;
 import net.minecraft.util.Identifier;
@@ -20,7 +19,7 @@ import net.minecraft.util.PacketByteBuf;
 public class ToolPart implements Predicate<ItemStack> {
 
 	public static final String JSON_IDENTIFIER = AltcraftTools.NAMESPACE + ":toolpart";
-	public static final ToolPart NONE = new ToolPart(new Identifier(AltcraftTools.NAMESPACE, "none"), new ItemStack(Items.WOODEN_AXE));
+	public static final ToolPart NONE = new ToolPart(new Identifier(AltcraftTools.NAMESPACE, "none"));
 	private final Identifier registry;
 	private final ItemStack stack;
 	private final AltcraftHandledItem item;
@@ -33,10 +32,21 @@ public class ToolPart implements Predicate<ItemStack> {
 		this.ingredient = null;
 	}
 
+	private ToolPart(Identifier registry) {
+		this.registry = registry;
+		this.stack = ItemStack.EMPTY;
+		this.item = null;
+		this.ingredient = null;
+	}
+
 	private Ingredient getCachedIngredient() {
+		if (this.item == null) {
+			return Ingredient.EMPTY;
+		}
 		if (this.ingredient == null) {
 			List<ItemStack> valid = Lists.newArrayList();
 			for (Handle handle : this.item.getValidHandles()) {
+				AltcraftTools.LOGGER.info(handle.getIngredient().toString());
 				valid.addAll(Arrays.asList(handle.getIngredient().getIds().stream().map(RecipeFinder::getStackFromId).toArray(size -> new ItemStack[size])));
 			}
 			List<Item> items = Lists.newArrayList();
@@ -64,6 +74,9 @@ public class ToolPart implements Predicate<ItemStack> {
 	}
 
 	public void addTag(ItemStack output, ItemStack material) {
+		if (item == null) {
+			return;
+		}
 		for (Handle handle : this.item.getValidHandles()) {
 			if (handle.getIngredient().test(material)) {
 				handle.addData(output);
@@ -82,7 +95,12 @@ public class ToolPart implements Predicate<ItemStack> {
 	}
 
 	public static ToolPart fromPacket(PacketByteBuf buf) {
-		return fromIdentifier(buf.readIdentifier(), buf.readItemStack());
+		Identifier registry = buf.readIdentifier();
+		ItemStack stack = buf.readItemStack();
+		if (registry.equals(ToolPart.NONE.registry)) {
+			return ToolPart.NONE;
+		}
+		return fromIdentifier(registry, stack);
 	}
 
 	@Override

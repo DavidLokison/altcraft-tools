@@ -56,11 +56,10 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
 	public DefaultedList<Ingredient> getPreviewInputs() {
 		DefaultedList<Ingredient> inputs = DefaultedList.ofSize(this.inputs.size(), Ingredient.EMPTY);
 		for (int i = 0; i < this.inputs.size(); ++i) {
-			inputs.set(i, this.inputs.get(i));
-		}
-		for (int i = 0; i < toolparts.size(); ++i) {
 			if (toolparts.get(i) != ToolPart.NONE) {
 				inputs.set(i, toolparts.get(i).getIngredient());
+			} else {
+				inputs.set(i, this.inputs.get(i));
 			}
 		}
 		return inputs;
@@ -142,20 +141,12 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
 
 	@Override
 	public ItemStack getOutput() {
-		// ItemStack stack = this.output.copy();
-		// Handle handle = (Handle) Registry.REGISTRIES.get(new
-		// Identifier(AltcraftTools.NAMESPACE, "handle")).getRandom(new Random());
-		// handle.addData(stack);
-		return getOutputStripped();
-	}
-
-	public ItemStack getOutputStripped() {
 		return this.output;
 	}
 
 	@Override
 	public ItemStack craft(CraftingInventory inventory) {
-		ItemStack output = this.getOutputStripped().copy();
+		ItemStack output = this.getOutput().copy();
 		Map<ToolPart, ItemStack> toolparts = this.getToolpartMaterials(inventory);
 		for (ToolPart part : toolparts.keySet()) {
 			part.addTag(output, toolparts.get(part));
@@ -187,7 +178,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
 			int height = buf.readVarInt();
 			String group = buf.readString();
 			DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(width * height, Ingredient.EMPTY);
-			DefaultedList<ToolPart> toolparts = DefaultedList.ofSize(width * height, null);
+			DefaultedList<ToolPart> toolparts = DefaultedList.ofSize(width * height, ToolPart.NONE);
 			for (int i = 0; i < ingredients.size(); ++i) {
 				ingredients.set(i, Ingredient.fromPacket(buf));
 			}
@@ -247,7 +238,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
 						String tag = JsonHelper.getString(value.getAsJsonObject(), ToolPart.JSON_IDENTIFIER);
 						parts.put(entry.getKey(), ToolPart.fromIdentifier(new Identifier(tag), stack));
 						value.getAsJsonObject().remove(ToolPart.JSON_IDENTIFIER);
-						value.getAsJsonObject().addProperty("item", "minecraft:cobblestone");
+						value.getAsJsonObject().addProperty("item", "minecraft:air");
 					}
 				}
 				components.put(entry.getKey(), Ingredient.fromJson(value));
