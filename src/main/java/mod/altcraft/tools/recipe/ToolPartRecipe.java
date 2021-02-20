@@ -10,11 +10,11 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
-import net.minecraft.util.PacketByteBuf;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
@@ -34,12 +34,12 @@ public class ToolPartRecipe implements MaterialRecipe {
 
 	@Override
 	public boolean matches(Inventory inv, World world) {
-		return ingredient.test(inv.getInvStack(0));
+		return ingredient.test(inv.getStack(0));
 	}
 
 	@Override
 	public ItemStack craft(Inventory inv) {
-		ItemStack stack = inv.getInvStack(0);
+		ItemStack stack = inv.getStack(0);
 		stack.getOrCreateSubTag(AltcraftTools.NAMESPACE).put("handle", StringTag.of(handle));
 		return stack;
 	}

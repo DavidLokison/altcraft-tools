@@ -15,20 +15,21 @@ import net.minecraft.item.ItemStack;
 @Mixin(EnchantmentHelper.class)
 public abstract class EnchantmentHelperMixin {
 
-  @Redirect(method = "getEnchantments(Ljava/util/Random;Lnet/minecraft/item/ItemStack;IZ)Ljava/util/List;", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;getEnchantability()I"))
-  private static int altcraft_modifyEnchantability(Item item, Random random_1, ItemStack stack, int int_1, boolean boolean_1) {
-    if (item instanceof AltcraftHandledItem) {
-      return Math.round(item.getEnchantability() * Handle.fromItemStack(stack).getEnchantabilityModifier());
-    }
-    return item.getEnchantability();
-  }
+	@Redirect(method = "calculateRequiredExperienceLevel", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;getEnchantability()I"))
+	private static int altcraft$modifyEnchantability(Item item, Random random, int slotIndex, int bookshelfCount, ItemStack stack) {
+		return altcraft$modifyEnchantability(item, stack);
+	}
 
-  @Redirect(method = "calculateEnchantmentPower", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;getEnchantability()I"))
-  private static int altcraft_modifyEnchantability(Item item, Random random_1, int int_1, int int_2, ItemStack stack) {
-    if (item instanceof AltcraftHandledItem) {
-      return Math.round(item.getEnchantability() * Handle.fromItemStack(stack).getEnchantabilityModifier());
-    }
-    return item.getEnchantability();
-  }
+	@Redirect(method = "generateEnchantments(Ljava/util/Random;Lnet/minecraft/item/ItemStack;IZ)Ljava/util/List;", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/Item;getEnchantability()I"))
+	private static int altcraft$modifyEnchantability(Item item, Random random, ItemStack stack, int level, boolean treasureAllowed) {
+		return altcraft$modifyEnchantability(item, stack);
+	}
+
+	private static int altcraft$modifyEnchantability(Item item, ItemStack stack) {
+		if (item instanceof AltcraftHandledItem) {
+			return Math.round(item.getEnchantability() * Handle.fromItemStack(stack).getEnchantabilityModifier());
+		}
+		return item.getEnchantability();
+	}
 
 }

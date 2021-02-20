@@ -11,10 +11,10 @@ import mod.altcraft.tools.handle.Handle;
 import mod.altcraft.tools.item.AltcraftHandledItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeFinder;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.PacketByteBuf;
 
 public class ToolPart implements Predicate<ItemStack> {
 
@@ -46,7 +46,6 @@ public class ToolPart implements Predicate<ItemStack> {
 		if (this.ingredient == null) {
 			List<ItemStack> valid = Lists.newArrayList();
 			for (Handle handle : this.item.getValidHandles()) {
-				AltcraftTools.LOGGER.info(handle.getIngredient().toString());
 				valid.addAll(Arrays.asList(handle.getIngredient().getIds().stream().map(RecipeFinder::getStackFromId).toArray(size -> new ItemStack[size])));
 			}
 			List<Item> items = Lists.newArrayList();

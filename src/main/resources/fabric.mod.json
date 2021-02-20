@@ -11,7 +11,7 @@
   },
   "authors": [
     {
-      "name": "David Ehnert",
+      "name": "Musikkäfer",
       "contact": {
         "email": "contact@david-ehnert.de",
         "curseforge": "https://www.curseforge.com/members/musikkaefer"
@@ -34,7 +34,7 @@
   ],
   "depends": {
     "fabricloader": ">=0.7.0",
-    "fabric": ">=0.11.0"
+    "fabric": ">=0.30.0"
   },
   "planned": {
     "cotton-resources": ">=1.5.1",

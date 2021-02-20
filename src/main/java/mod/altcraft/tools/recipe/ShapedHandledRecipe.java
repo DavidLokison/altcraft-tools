@@ -18,14 +18,14 @@ import mod.altcraft.tools.item.AltcraftHandledItem;
 import net.minecraft.inventory.CraftingInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.CraftingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.ShapedRecipe;
-import net.minecraft.util.DefaultedList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
-import net.minecraft.util.PacketByteBuf;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
@@ -118,7 +118,7 @@ public class ShapedHandledRecipe extends ShapedRecipe implements CraftingRecipe 
 					ingredient = ingredients.get(index);
 					toolpart = this.toolparts.get(index);
 				}
-				ItemStack stack = inventory.getInvStack(baseX + baseY * inventory.getWidth());
+				ItemStack stack = inventory.getStack(baseX + baseY * inventory.getWidth());
 				if (toolpart != ToolPart.NONE) {
 					if (!toolpart.test(stack)) {
 						return false;

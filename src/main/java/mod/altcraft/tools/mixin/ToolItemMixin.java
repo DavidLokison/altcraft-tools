@@ -3,23 +3,18 @@ package mod.altcraft.tools.mixin;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Set;
+import java.util.UUID;
 
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Sets;
 
-import mod.altcraft.tools.AltcraftTools;
 import mod.altcraft.tools.handle.Handle;
 import mod.altcraft.tools.item.AltcraftHandledItem;
 import mod.altcraft.tools.util.Registries;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolItem;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.util.Identifier;
 
 @Mixin(ToolItem.class)
 public abstract class ToolItemMixin extends Item implements AltcraftHandledItem {
@@ -53,8 +48,7 @@ public abstract class ToolItemMixin extends Item implements AltcraftHandledItem 
 		return this.altcraft$specialHandles.add(handle);
 	}
 
-	@Inject(method = "<init>", at = @At("RETURN"))
-	private void altcraft$appendPropertyGetters(ToolMaterial material, Item.Settings settings, CallbackInfo ci) {
-		this.addPropertyGetter(new Identifier(AltcraftTools.NAMESPACE, "handle"), (stack, world, entity) -> Handle.getRawId(Handle.fromItemStack(stack)));
+	public UUID getAttackSpeedModifierUUID() {
+		return ATTACK_SPEED_MODIFIER_ID;
 	}
 }

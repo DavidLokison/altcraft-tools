@@ -65,6 +65,7 @@ public class AltcraftTools implements ModInitializer, ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+		// ModelPredicateProviderRegistrySpecificAccessor
 		// KeyBindings.registerKeyBindings();
 	}
 

@@ -10,7 +10,8 @@
   ],
   "client": [
     "ToolItemClientMixin",
-    "ModelLoaderClientMixin"
+    "ModelLoaderClientMixin",
+    "ModelPredicateProviderRegistryClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
