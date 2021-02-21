@@ -1,0 +1,14 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "pattern": [
+    "XxX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": { "item": "minecraft:iron_block" },
+    "x": { "item": "minecraft:iron_ingot" },
+    "#": { "altcraft:toolpart": "altcraft:handle" }
+  },
+  "result": { "item": "vanilla-hammers:iron_hammer" }
+}

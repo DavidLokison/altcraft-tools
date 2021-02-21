@@ -1,0 +1,14 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "pattern": [
+    "XxX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": { "item": "minecraft:stone" },
+    "x": { "item": "minecraft:cobblestone" },
+    "#": { "altcraft:toolpart": "altcraft:handle" }
+  },
+  "result": { "item": "vanilla-hammers:stone_hammer" }
+}

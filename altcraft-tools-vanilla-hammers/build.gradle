@@ -1,5 +1,5 @@
 plugins {
-  id 'fabric-loom' version '0.5-SNAPSHOT'
+  id 'fabric-loom'
   id 'maven-publish'
 }
 
@@ -50,7 +50,6 @@ dependencies {
   
   // modImplementation ("io.github.cottonmc:cotton-resources:${project.cotton_resources_version}")
   modImplementation ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") { exclude(group: "net.fabricmc.fabric-api") }
-  
 }
 
 processResources {

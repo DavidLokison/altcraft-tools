@@ -1,0 +1,14 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "pattern": [
+    "XxX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": { "item": "minecraft:gold_block" },
+    "x": { "item": "minecraft:gold_ingot" },
+    "#": { "altcraft:toolpart": "altcraft:handle" }
+  },
+  "result": { "item": "vanilla-hammers:golden_hammer" }
+}

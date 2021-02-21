@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "vanilla-hammers-altcraft",
+  "version": "${version}",
+  "name": "Altcraft Tools Vanilla Hammers Compatibility Patch",
+  "description": "Manages compatibility between Altcraft Tools and Vanilla Hammers.",
+  "contact": {
+    "sources": "https://github.com/Saladan/altcraft-tools",
+    "issues": "https://github.com/Saladan/altcraft-tools/issues",
+    "curseforge": "https://www.curseforge.com/minecraft/mc-mods/altcraft-tools"
+  },
+  "authors": [
+    {
+      "name": "Musikkäfer",
+      "contact": {
+        "email": "contact@david-ehnert.de",
+        "curseforge": "https://www.curseforge.com/members/musikkaefer"
+      }
+    }
+  ],
+  "license": "MIT License",
+  "icon": "assets/altcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {},
+  "mixins": [],
+  "depends": {
+    "fabricloader": "*",
+    "altcraft-tools": ">=2.1.0",
+    "vanilla-hammers": "*"
+  }
+}

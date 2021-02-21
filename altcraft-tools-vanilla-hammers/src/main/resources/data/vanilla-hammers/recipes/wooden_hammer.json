@@ -1,0 +1,14 @@
+{
+  "type": "altcraft:crafting_shaped_handled",
+  "pattern": [
+    "XxX",
+    " # ",
+    " # "
+  ],
+  "key": {
+    "X": { "tag": "minecraft:logs" },
+    "x": { "tag": "minecraft:planks" },
+    "#": { "altcraft:toolpart": "altcraft:handle" }
+  },
+  "result": { "item": "vanilla-hammers:wooden_hammer" }
+}
