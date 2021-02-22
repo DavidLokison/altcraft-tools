@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "golden_pickaxe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
     " # ",
     " # "
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:gold_ingot" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
   },
-  "result": { "item": "minecraft:golden_pickaxe" }
+  "result": {
+    "item": "minecraft:golden_pickaxe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

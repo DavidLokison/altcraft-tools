@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 @Mixin(ModelPredicateProviderRegistry.class)
 public class ModelPredicateProviderRegistryClientMixin {
-	private static final Identifier ALTCRAFT$HANDLE_ID = new Identifier(AltcraftTools.NAMESPACE, "handle");
+	private static final Identifier ALTCRAFT$HANDLE_ID = AltcraftTools.identifier("handle");
 	private static final ModelPredicateProvider ALTCRAFT$HANDLE = (stack, world, entity) -> Handle.getRawId(Handle.fromItemStack(stack));
 
 	@Inject(method = "get", at = @At("HEAD"), cancellable = true)

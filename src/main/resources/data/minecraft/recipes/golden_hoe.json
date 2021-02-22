@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "golden_hoe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     " #",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:gold_ingot" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:gold_ingot"
+    }
   },
-  "result": { "item": "minecraft:golden_hoe" }
+  "result": {
+    "item": "minecraft:golden_hoe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

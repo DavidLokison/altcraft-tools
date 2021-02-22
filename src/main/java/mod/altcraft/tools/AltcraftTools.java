@@ -20,12 +20,13 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.StringTag;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class AltcraftTools implements ModInitializer, ClientModInitializer {
 	public static final String NAMESPACE = "altcraft";
-	public static final ItemGroup GROUP = FabricItemGroupBuilder.create(new Identifier(NAMESPACE, "tools")).appendItems(stacks -> {
+	public static final ItemGroup GROUP = FabricItemGroupBuilder.create(AltcraftTools.identifier("tools")).appendItems(stacks -> {
 		stacks.add(new ItemStack(Items.IRON_ROD));
 		stacks.add(new ItemStack(Items.GOLDEN_ROD));
 		Iterator<Item> itemIt = Registry.ITEM.iterator();
@@ -65,8 +66,19 @@ public class AltcraftTools implements ModInitializer, ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		// ModelPredicateProviderRegistrySpecificAccessor
 		// KeyBindings.registerKeyBindings();
+	}
+
+	public static final Identifier identifier(String path) {
+		return new Identifier(AltcraftTools.NAMESPACE, path);
+	}
+
+	public static final TranslatableText translatableText(String path) {
+		return new TranslatableText(AltcraftTools.NAMESPACE + "." + path);
+	}
+
+	public static final TranslatableText translatableText(String path, Object... args) {
+		return new TranslatableText(AltcraftTools.NAMESPACE + "." + path, args);
 	}
 
 }

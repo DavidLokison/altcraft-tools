@@ -18,7 +18,10 @@
       }
     }
   ],
-  "license": "MIT License",
+  "contributors": [
+    "Draylar"
+  ],
+  "license": "MIT",
   "icon": "assets/altcraft/icon.png",
   "environment": "*",
   "entrypoints": {},
@@ -27,5 +30,10 @@
     "fabricloader": "*",
     "altcraft-tools": ">=2.1.0",
     "vanilla-hammers": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "altcraft-tools"
+    }
   }
 }

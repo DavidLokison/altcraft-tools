@@ -1,14 +1,25 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XxX",
-    " # ",
-    " # "
+    "DdD",
+    " s ",
+    " s "
   ],
   "key": {
-    "X": { "item": "minecraft:stone" },
-    "x": { "item": "minecraft:cobblestone" },
-    "#": { "altcraft:toolpart": "altcraft:handle" }
+    "D": {
+      "item": "minecraft:stone"
+    },
+    "d": {
+      "item": "minecraft:cobblestone"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
   },
-  "result": { "item": "vanilla-hammers:stone_hammer" }
+  "result": {
+    "item": "vanilla-hammers:stone_hammer"
+  },
+  "altcraft:toolparts": {
+  	"s": "altcraft:handle"
+  }
 }

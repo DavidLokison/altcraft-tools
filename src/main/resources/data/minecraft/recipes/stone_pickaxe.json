@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "stone_pickaxe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
     " # ",
     " # "
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:cobblestone" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
   },
-  "result": { "item": "minecraft:stone_pickaxe" }
+  "result": {
+    "item": "minecraft:stone_pickaxe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

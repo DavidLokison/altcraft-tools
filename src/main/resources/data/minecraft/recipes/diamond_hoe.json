@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "diamond_hoe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     " #",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:diamond" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
   },
-  "result": { "item": "minecraft:diamond_hoe" }
+  "result": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

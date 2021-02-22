@@ -14,7 +14,7 @@ public class Handles {
 	public static final Handle BAMBOO = new Handle(new Handle.Settings().durabilityModifier(0.8F).speedModifier(1.2F));
 
 	private static Handle register(String string, Handle handle) {
-		return Registry.register(Registries.HANDLE, AltcraftTools.NAMESPACE + ":" + string, handle);
+		return Registry.register(Registries.HANDLE, AltcraftTools.identifier(string), handle);
 	}
 
 	public static void registerHandles() {
