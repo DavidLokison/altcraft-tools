@@ -1,14 +1,25 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XxX",
-    " # ",
-    " # "
+    "DdD",
+    " s ",
+    " s "
   ],
   "key": {
-    "X": { "tag": "minecraft:logs" },
-    "x": { "tag": "minecraft:planks" },
-    "#": { "altcraft:toolpart": "altcraft:handle" }
+    "D": {
+      "tag": "minecraft:logs"
+    },
+    "d": {
+      "tag": "minecraft:planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
   },
-  "result": { "item": "vanilla-hammers:wooden_hammer" }
+  "result": {
+    "item": "vanilla-hammers:wooden_hammer"
+  },
+  "altcraft:toolparts": {
+  	"s": "altcraft:handle"
+  }
 }

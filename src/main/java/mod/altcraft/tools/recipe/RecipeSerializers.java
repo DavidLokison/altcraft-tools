@@ -8,11 +8,10 @@ import net.minecraft.util.registry.Registry;
 
 public class RecipeSerializers {
 
-	public static final RecipeSerializer<ShapedHandledRecipe> SHAPED_HANDLED;
-	public static final RecipeSerializer<ToolPartRecipe> TOOLPART;
+	public static final RecipeSerializer<MaterialRecipe> MATERIAL;
 
 	static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(String name, S serializer) {
-		return register(new Identifier(AltcraftTools.NAMESPACE, name), serializer);
+		return register(AltcraftTools.identifier(name), serializer);
 	}
 
 	static <S extends RecipeSerializer<T>, T extends Recipe<?>> S register(Identifier identifier, S serializer) {
@@ -20,13 +19,11 @@ public class RecipeSerializers {
 	}
 
 	static {
-		SHAPED_HANDLED = new ShapedHandledRecipe.Serializer();
-		TOOLPART = new ToolPartRecipe.Serializer();
+		MATERIAL = new MaterialRecipe.Serializer();
 	}
 
 	public static void registerRecipeSerializers() {
-		register("crafting_shaped_handled", SHAPED_HANDLED);
-		register("toolpart", TOOLPART);
+		register("material", MATERIAL);
 	}
 
 }

@@ -18,7 +18,7 @@
       }
     }
   ],
-  "license": "MIT License",
+  "license": "MIT",
   "icon": "assets/altcraft/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -36,7 +36,7 @@
     "fabricloader": ">=0.7.0",
     "fabric": ">=0.30.0"
   },
-  "planned": {
+  "suggests": {
     "cotton-resources": ">=1.5.1",
     "cloth-config2": ">=2.14.1"
   }

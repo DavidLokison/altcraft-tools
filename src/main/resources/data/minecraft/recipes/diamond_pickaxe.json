@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "diamond_pickaxe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
     " # ",
     " # "
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:diamond" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
   },
-  "result": { "item": "minecraft:diamond_pickaxe" }
+  "result": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

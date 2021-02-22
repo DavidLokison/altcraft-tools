@@ -10,7 +10,7 @@ public class RecipeTypes {
 	public static final RecipeType<MaterialRecipe> MATERIAL;
 
 	private static <T extends Recipe<?>> RecipeType<T> register(String string, RecipeType<T> recipeType) {
-		return register(new Identifier(AltcraftTools.NAMESPACE, string), recipeType);
+		return register(AltcraftTools.identifier(string), recipeType);
 	}
 
 	private static <T extends Recipe<?>> RecipeType<T> register(Identifier identifier, RecipeType<T> recipeType) {

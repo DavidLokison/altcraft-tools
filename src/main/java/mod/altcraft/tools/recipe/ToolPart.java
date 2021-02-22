@@ -18,8 +18,8 @@ import net.minecraft.util.Identifier;
 
 public class ToolPart implements Predicate<ItemStack> {
 
-	public static final String JSON_IDENTIFIER = AltcraftTools.NAMESPACE + ":toolpart";
-	public static final ToolPart NONE = new ToolPart(new Identifier(AltcraftTools.NAMESPACE, "none"));
+	public static final String JSON_IDENTIFIER = AltcraftTools.identifier("toolparts").toString();
+	public static final ToolPart NONE = new ToolPart(AltcraftTools.identifier("none"));
 	private final Identifier registry;
 	private final ItemStack stack;
 	private final AltcraftHandledItem item;
@@ -104,10 +104,24 @@ public class ToolPart implements Predicate<ItemStack> {
 
 	@Override
 	public boolean equals(Object other) {
-		if (!(other instanceof ToolPart)) {
+		if (this == other) {
+			return true;
+		} else if (!(other instanceof ToolPart)) {
 			return false;
+		} else {
+			ToolPart toolpart = (ToolPart) other;
+			return this.registry.equals(toolpart.registry) && this.stack.isItemEqualIgnoreDamage(toolpart.stack);
 		}
-		return this.registry.equals(((ToolPart) other).registry) && this.stack.equals(((ToolPart) other).stack);
+	}
+
+	@Override
+	public String toString() {
+		return "ToolPart(" + this.registry.toString() + "," + this.stack.getItem().toString() + ")";
+	}
+
+	@Override
+	public int hashCode() {
+		return this.getClass().hashCode() + 12 * this.registry.hashCode() + 5 * this.stack.getItem().hashCode();
 	}
 
 }

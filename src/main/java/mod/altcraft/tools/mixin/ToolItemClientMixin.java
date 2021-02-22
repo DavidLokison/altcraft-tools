@@ -33,15 +33,15 @@ public abstract class ToolItemClientMixin extends Item {
 		boolean showMore = context.isAdvanced(); // KeyBindings.MORE_TOOLTIPS.isPressed();
 		if (Handle.hasCustomHandle(stack)) {
 			Handle handle = Handle.fromItemStack(stack);
-			list.add(new TranslatableText(AltcraftTools.NAMESPACE + ".item.handle").append(new TranslatableText(handle.getTranslationKey())));
+			list.add(AltcraftTools.translatableText("item.handle").append(new TranslatableText(handle.getTranslationKey())));
 			if (showMore) {
-				list.add(new LiteralText(" ").append(new TranslatableText("altcraft.handle.durability", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getDurabilityModifier()) })).formatted(Formatting.GRAY));
-				list.add(new LiteralText(" ").append(new TranslatableText("altcraft.handle.speed", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getSpeedModifier()) })).formatted(Formatting.GRAY));
-				list.add(new LiteralText(" ").append(new TranslatableText("altcraft.handle.enchantability", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getEnchantabilityModifier()) })).formatted(Formatting.GRAY));
+				list.add(new LiteralText(" ").append(AltcraftTools.translatableText("handle.durability", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getDurabilityModifier()) })).formatted(Formatting.GRAY));
+				list.add(new LiteralText(" ").append(AltcraftTools.translatableText("handle.speed", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getSpeedModifier()) })).formatted(Formatting.GRAY));
+				list.add(new LiteralText(" ").append(AltcraftTools.translatableText("handle.enchantability", new Object[] { ItemStack.MODIFIER_FORMAT.format(handle.getEnchantabilityModifier()) })).formatted(Formatting.GRAY));
 			}
 		} else {
 			if (((AltcraftHandledItem) this).getValidHandles().size() > 0 && showMore) {
-				list.add(new TranslatableText(AltcraftTools.NAMESPACE + ".item.handle.crafting").formatted(Formatting.GRAY));
+				list.add(AltcraftTools.translatableText("item.handle.crafting").formatted(Formatting.GRAY));
 				for (Handle handle : ((AltcraftHandledItem) this).getValidHandles()) {
 					list.add(new LiteralText(" * ").append(new TranslatableText(handle.getTranslationKey())).formatted(Formatting.DARK_GRAY));
 				}

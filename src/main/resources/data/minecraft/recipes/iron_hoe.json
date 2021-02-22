@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "iron_hoe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     " #",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:iron_ingot" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
   },
-  "result": { "item": "minecraft:iron_hoe" }
+  "result": {
+    "item": "minecraft:iron_hoe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

@@ -6,12 +6,15 @@
   "mixins": [
     "EnchantmentHelperMixin",
     "ItemStackMixin",
-    "ToolItemMixin"
+    "ToolItemMixin",
+    "ShapedRecipeMixin",
+    "ShapedRecipeSerializerMixin"
   ],
   "client": [
     "ToolItemClientMixin",
     "ModelLoaderClientMixin",
-    "ModelPredicateProviderRegistryClientMixin"
+    "ModelPredicateProviderRegistryClientMixin",
+    "ClientRecipeBookClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1

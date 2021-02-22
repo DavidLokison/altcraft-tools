@@ -1,5 +1,5 @@
 {
-  "type": "altcraft:toolpart",
+  "type": "altcraft:material",
   "ingredient": { "item": "altcraft:golden_rod" },
   "result": { "altcraft:handle": "altcraft:gold" }
 }

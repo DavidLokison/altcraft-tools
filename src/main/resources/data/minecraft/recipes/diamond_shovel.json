@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "diamond_shovel",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "X",
     "#",
     "#"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:diamond" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
   },
-  "result": { "item": "minecraft:diamond_shovel" }
+  "result": {
+    "item": "minecraft:diamond_shovel"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

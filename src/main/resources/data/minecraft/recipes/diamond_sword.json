@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "diamond_sword",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "X",
     "X",
     "#"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:diamond" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:diamond"
+    }
   },
-  "result": { "item": "minecraft:diamond_sword" }
+  "result": {
+    "item": "minecraft:diamond_sword"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

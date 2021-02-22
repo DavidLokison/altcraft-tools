@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "wooden_axe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     "X#",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "tag": "minecraft:planks" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "minecraft:planks"
+    }
   },
-  "result": { "item": "minecraft:wooden_axe" }
+  "result": {
+    "item": "minecraft:wooden_axe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

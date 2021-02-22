@@ -1,14 +1,25 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XxX",
-    " # ",
-    " # "
+    "DdD",
+    " s ",
+    " s "
   ],
   "key": {
-    "X": { "item": "minecraft:iron_block" },
-    "x": { "item": "minecraft:iron_ingot" },
-    "#": { "altcraft:toolpart": "altcraft:handle" }
+    "D": {
+      "item": "minecraft:iron_block"
+    },
+    "d": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
   },
-  "result": { "item": "vanilla-hammers:iron_hammer" }
+  "result": {
+    "item": "vanilla-hammers:iron_hammer"
+  },
+  "altcraft:toolparts": {
+  	"s": "altcraft:handle"
+  }
 }

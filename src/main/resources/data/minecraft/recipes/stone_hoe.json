@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "stone_hoe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     " #",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:cobblestone" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
   },
-  "result": { "item": "minecraft:stone_hoe" }
+  "result": {
+    "item": "minecraft:stone_hoe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

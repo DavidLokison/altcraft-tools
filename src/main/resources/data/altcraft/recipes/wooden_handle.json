@@ -1,5 +1,5 @@
 {
-  "type": "altcraft:toolpart",
+  "type": "altcraft:material",
   "ingredient": { "item": "minecraft:stick" },
   "result": { "altcraft:handle": "altcraft:wood" }
 }

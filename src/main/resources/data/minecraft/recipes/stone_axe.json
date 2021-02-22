@@ -1,14 +1,22 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
-  "group": "stone_axe",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "XX",
     "X#",
     " #"
   ],
   "key": {
-    "#": { "altcraft:toolpart": "altcraft:handle" },
-    "X": { "item": "minecraft:cobblestone" }
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "minecraft:cobblestone"
+    }
   },
-  "result": { "item": "minecraft:stone_axe" }
+  "result": {
+    "item": "minecraft:stone_axe"
+  },
+  "altcraft:toolparts": {
+    "#": "altcraft:handle"
+  }
 }

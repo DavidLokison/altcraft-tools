@@ -1,14 +1,25 @@
 {
-  "type": "altcraft:crafting_shaped_handled",
+  "type": "minecraft:crafting_shaped",
   "pattern": [
-    "XxX",
-    " # ",
-    " # "
+    "DdD",
+    " s ",
+    " s "
   ],
   "key": {
-    "X": { "item": "minecraft:diamond_block" },
-    "x": { "item": "minecraft:diamond" },
-    "#": { "altcraft:toolpart": "altcraft:handle" }
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "d": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
   },
-  "result": { "item": "vanilla-hammers:diamond_hammer" }
+  "result": {
+    "item": "vanilla-hammers:diamond_hammer"
+  },
+  "altcraft:toolparts": {
+  	"s": "altcraft:handle"
+  }
 }
